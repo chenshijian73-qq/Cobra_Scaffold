@@ -46,11 +46,11 @@ func init() {
 	rootCmd.AddGroup(groups...)
 	// 非持久化参数
 	rootCmd.Flags().IntVarP(&a, "a", "a", 0, "specify int")
-	b = rootCmd.Flags().String("b", "", "specify string")
-	c = rootCmd.Flags().Int("c", 1, "specify int")
-	d = rootCmd.Flags().StringArray("d", []string{}, "specify string array")
+	b = rootCmd.Flags().StringP("b", "b", "", "specify string")
+	c = rootCmd.Flags().IntP("c", "c", 1, "specify int")
+	d = rootCmd.Flags().StringArrayP("d", "d", []string{}, "specify string array")
 	// 持久化参数, 子命令继承使用
-	e = rootCmd.PersistentFlags().Int("e", 2, "persistent int")
+	e = rootCmd.PersistentFlags().IntP("e", "e", 2, "persistent int")
 }
 
 func Execute() {
